@@ -41,6 +41,7 @@ class Server {
                 e.printStackTrace();
             }
         };
+        new Thread(r1).start();
     }
 
     public void startWriting() {
@@ -49,13 +50,20 @@ class Server {
                 while (!socket.isClosed()) {
                     
                     BufferedReader br1=new BufferedReader(new InputStreamReader(System.in));
-                    // out.println(content);
+                    String content=br1.readLine();
+                    out.println(content);
+                    out.flush();
+                    if (content.equals("exit")){
+                        socket.close();
+                        break;
+                    }
                 }                
             } catch (Exception e) {
                 // TODO: handle exception
                 e.printStackTrace();
             }
         };
+        new Thread(r2).start();
     }
 
     public static void main(String args[]) {
