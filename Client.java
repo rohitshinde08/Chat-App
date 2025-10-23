@@ -57,6 +57,7 @@ public class Client extends JFrame {
         heading.setVerticalTextPosition(SwingConstants.BOTTOM);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         heading.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        massageInput.setHorizontalAlignment(SwingConstants.CENTER);
 
         this.setLayout(new BorderLayout());
 
