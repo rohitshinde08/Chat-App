@@ -13,7 +13,8 @@ Demonstrates client-server communication and allows multiple users to chat in re
 
 - 💻 Real-time messaging between clients and server  
 - 👥 Multi-client support  
-- 📝 Simple command-line interface (CLI)  
+- 📝 Simple command-line interface (CLI)
+-    GUI based on java
 
 ---
 
