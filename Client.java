@@ -31,7 +31,7 @@ public class Client extends JFrame {
             // socket=new Socket("127.0.0.1",7777);
             // System.out.println("Connection Done...");
             // br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            // out = new PrintWriter(socket.getOutputStream());
+             out = new PrintWriter(socket.getOutputStream());
             createGUI();
             // startReading();
             // startWriting();
