@@ -13,6 +13,8 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -31,15 +33,15 @@ public class Client extends JFrame {
 
     public Client(){
         try {
-            // System.out.println("Sending request to server.....");
-            // socket=new Socket("127.0.0.1",7777);
-            // System.out.println("Connection Done...");
-            // br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            // out = new PrintWriter(socket.getOutputStream());
+            System.out.println("Sending request to server.....");
+            socket=new Socket("127.0.0.1",7777);
+            System.out.println("Connection Done...");
+            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream());
             createGUI();
             handleEvents();
-            // startReading();
-            // startWriting();
+            startReading();
+            startWriting();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,16 +67,20 @@ public class Client extends JFrame {
                 // System.out.println("key realeased : "+e.getKeyCode());
                 if (e.getKeyCode()==10){   //10 is keycode for enter button
                     // System.out.println("You have pressed enter");
+                    String contentTOsend = massageInput.getText();
+                    massageArea.append(" Me : "+contentTOsend+"\n");
+                    out.println(contentTOsend);
+                    out.flush();
+                    massageInput.setText("");
+                    massageInput.requestFocus();
                 }
             }
             
         });
     }
 
-    //     // });
-    // }
     private void createGUI(){
-        this.setTitle("Client Massager");
+        this.setTitle("Client Messager");
         this.setSize(500,700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,12 +97,14 @@ public class Client extends JFrame {
         heading.setVerticalTextPosition(SwingConstants.BOTTOM);
         heading.setHorizontalAlignment(SwingConstants.CENTER);
         heading.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        massageArea.setEditable(false);
         massageInput.setHorizontalAlignment(SwingConstants.CENTER);
 
         this.setLayout(new BorderLayout());
 
         this.add(heading,BorderLayout.NORTH);
-        this.add(massageArea,BorderLayout.CENTER);
+        JScrollPane jScrollPane=new JScrollPane(massageArea);
+        this.add(jScrollPane,BorderLayout.CENTER);
         this.add(massageInput,BorderLayout.SOUTH);
 
         this.setVisible(true);
@@ -109,15 +117,17 @@ public class Client extends JFrame {
                 while (!socket.isClosed()) {
                     String msg = br.readLine();
                     if (msg.equals("exit")) {
-                        System.out.println("Server terminated the chat");
+                        System.out.println("Server terminated the chat...!!!");
+                        JOptionPane.showMessageDialog(null, "Server terminated the chat...!!!");
+                        massageInput.setEnabled(false);
                         socket.close();
                         break;
                     }
-                    System.out.println("Server : "+msg);
+                    // System.out.println("Server : "+msg);
+                    massageArea.append("Server : "+msg+"\n");
                 }
             } catch (Exception e) {
-                // TODO: handle exception
-                // e.printStackTrace();
+                
                 System.out.println("Connection closed....");
             }
         };
