@@ -3,10 +3,8 @@ import java.net.*;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+// import java.awt.event.KeyEvent;
+// import java.awt.event.KeyListener;
 import java.awt.font.*;
 
 import javax.swing.BorderFactory;
@@ -37,40 +35,35 @@ public class Client extends JFrame {
             // br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             // out = new PrintWriter(socket.getOutputStream());
             createGUI();
-            handleEvents();
+            // handleEvents();
             // startReading();
             // startWriting();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    
+    // public void handleEvents(){
+    //     // massageInput.addKeyListener(new KeyListener(){
 
+    //     //     @Override
+    //     //     public void keyTyped(KeyEvent e) {
+    //     //         // TODO Auto-generated method stub
+    //     //         throw new UnsupportedOperationException("Unimplemented method 'keyTyped'");
+    //     //     }
+
+    //     //     @Override
+    //     //     public void keyPressed(KeyEvent e) {
+    //     //         // TODO Auto-generated method stub
+    //     //         throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
+    //     //     }
+
+    //     //     @Override
+    //     //     public void keyReleased(KeyEvent e) {
+    //     //         // TODO Auto-generated method stub
+    //     //         throw new UnsupportedOperationException("Unimplemented method 'keyReleased'");
+    //     //     }
             
-    private void handleEvents() {
-        massageInput.addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-            
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                // TODO Auto-generated method stub
-                // System.out.println("key realeased : "+e.getKeyCode());
-                if (e.getKeyCode()==10){   //10 is keycode for enter button
-                    // System.out.println("You have pressed enter");
-                }
-            }
-            
-        });
-    }
-
     //     // });
     // }
     private void createGUI(){
