@@ -134,6 +134,7 @@ public class Client extends JFrame {
         new Thread(r1).start();
     }
 
+    
     public void startWriting() {
         Runnable r2 = () -> {
             try {

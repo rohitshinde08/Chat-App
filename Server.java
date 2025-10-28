@@ -91,7 +91,6 @@ class Server extends JFrame {
         massageArea.setEditable(false);
         massageInput.setHorizontalAlignment(SwingConstants.CENTER);
 
-
         this.setLayout(new BorderLayout());
         this.add(heading,BorderLayout.NORTH);
         JScrollPane jScrollPane=new JScrollPane(massageArea);
