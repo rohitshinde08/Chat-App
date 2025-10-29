@@ -14,7 +14,10 @@ Demonstrates client-server communication and allows multiple users to chat in re
 - 💻 Real-time messaging between clients and server  
 - 👥 Multi-client support  
 - 📝 Simple command-line interface (CLI)
--    GUI based on java
+- 🪟 Interactive **Graphical User Interface (GUI)** built with Swing  
+- 🔒 Stable TCP connection for data transmission  
+- 📡 Message broadcasting to all connected clients  
+- 🚀 Lightweight and easy to run
 
 ---
 
