@@ -5,7 +5,7 @@ Demonstrates client-server communication and allows multiple users to chat in re
 
 ---
 
-![Java](https://img.shields.io/badge/Language-Java-orange?style=flat-square) ![Sockets](https://img.shields.io/badge/Networking-Sockets-blue?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Java](https://img.shields.io/badge/Language-Java-orange?style=flat-square) ![Sockets](https://img.shields.io/badge/Networking-Sockets-blue?style=flat-square)
 
 ---
 
